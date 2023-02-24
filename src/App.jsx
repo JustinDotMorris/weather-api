@@ -125,23 +125,23 @@ function App() {
   //   } else return;
   // };
 
-  const allNewsJSX = newsArray.map((article) => {
+  const allNewsJSX = newsArray.map((article, index) => {
     console.log("getallnews");
     return (
       <Article
-        // key={id++}
+        key={index}
         title={article.title}
+        // author={article.author}
         url={article.url}
-        author={article.author}
       />
     );
   });
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <div className="app__header">
         <h1>{greeting}</h1>
-      </header>
+      </div>
       <div>
         <p>The time is: {todaysDate.toLocaleTimeString()}</p>
         <p>
@@ -149,7 +149,9 @@ function App() {
         </p>
         {}
         <img src={weatherIcon} alt="current weather icon" />
-        <h2>Top News Stories</h2>
+        <div className="app__news-header">
+          <h2>Top News Stories</h2>
+        </div>
         <div>{allNewsJSX}</div>
       </div>
     </div>
